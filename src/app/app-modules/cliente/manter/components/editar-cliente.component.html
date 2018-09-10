@@ -1,0 +1,205 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <ps-tabs ps-tabs-left>
+        <ps-tab>
+          <ng-template ps-tab-title>
+            <ps-ico ps-type="ps-glyph" ps-size="sm" ps-ico="car"></ps-ico>
+            {{ 'Cliente.Titulo' | translate:lang }}
+          </ng-template>
+          <ng-template ps-tab-content>
+            <h3 ps-title ps-heading="3" ps-light>
+              {{ 'Cliente.Titulo' | translate:lang }}
+            </h3>
+            <form id="form" [formGroup]="form" (ngSubmit)="submit()" class="needs-validation">
+              <ps-accordion>
+                <ps-accordion-panel [open]="true">
+                  <ng-template ps-panel-head>
+                    {{ 'Cliente.Preencha' | translate:lang }}
+                  </ng-template>
+
+                  <ng-template ps-panel-ctt>
+                    <div ps-row ps-column ps-mobile="4" ps-tablet="6" ps-desktop-sm="12">
+
+
+
+                      <div ps-row>
+                        <div ps-column ps-mobile="8" ps-tablet="8" ps-desktop-sm="12" c>
+                          <ps-form-field [label-internal]="'Cliente.Nome' | translate:lang">
+                            <input ps-field-entry type="text" id="nome" formControlName="nome" name="nome" placeholder="{{ 'Valida.Informe' | translate:lang }}{{ 'Cliente.Nome' | translate:lang }}"
+                            />
+                            <div [hidden]="form.get('nome').errors === null || !getSubmitted()" [style.color]="form.get('nome').errors && getSubmitted() ? 'red': '' ">
+                              <label class="ps-frm-lbl" [hidden]="form.get('nome').hasError('required') === false ">
+                                <small l10nTranslate>Valida.Required</small>
+                              </label>
+                              <label class="ps-frm-lbl" [hidden]="form.get('nome').status === 'VALID'">
+                                <small>{{ 'Valida.Min' | translate:lang }} 7 {{ 'Valida.Caracteres' | translate:lang }}</small>
+                              </label>
+                            </div>
+                          </ps-form-field>
+                        </div>
+                      </div>
+                      <div ps-row>
+                        <div ps-column ps-mobile="8" ps-tablet="6" ps-desktop-sm="6">
+                          <ps-form-field [label-internal]="'Cliente.Endereco' | translate:lang">
+                            <input ps-field-entry type="text" id="endereco" formControlName="endereco" class="ng-valid required ps-frm-entry ps-frm-valid"
+                              placeholder="{{ 'Valida.Informe' | translate:lang }}{{ 'Cliente.Endereco' | translate:lang }}"
+                            />
+                            <div [hidden]="form.get('endereco').errors === null || !getSubmitted()" [style.color]="form.get('endereco').errors && getSubmitted() ? 'red': '' ">
+                              <label class="ps-frm-lbl" [hidden]="form.get('endereco').hasError('required') === false ">
+                                <small l10nTranslate>Valida.Required</small>
+                              </label>
+                              <label class="ps-frm-lbl" [hidden]="form.get('endereco').status === 'VALID'">
+                                <small>{{ 'Valida.Min' | translate:lang }} 7 {{ 'Valida.Caracteres' | translate:lang }}</small>
+                              </label>
+                            </div>
+                          </ps-form-field>
+
+                        </div>
+
+                        <div ps-column ps-mobile="8" ps-tablet="6" ps-desktop-sm="6">
+                          <ps-form-field [label-internal]=" 'Cliente.Telefone' | translate:lang " placeholder="(99)9999-99999">
+                            <input ps-field-entry-cel ps-mask="(99) 99999-9999" type="text" id="telefone" formControlName="telefone" class="ng-valid required ps-frm-entry ps-frm-valid"
+                              placeholder="{{ 'Valida.Informe' | translate:lang }}{{ 'Cliente.Telefone' | translate:lang }}"
+                            />
+                            <div [hidden]="form.get('telefone').errors === null || !getSubmitted()" [style.color]="form.get('telefone').errors && getSubmitted() ? 'red': '' ">
+                              <label class="ps-frm-lbl" [hidden]="form.get('telefone').hasError('required') === false ">
+                                <small l10nTranslate>Valida.Required</small>
+                              </label>
+                            </div>
+                          </ps-form-field>
+
+                        </div>
+
+                      </div>
+                      <div ps-row>
+                        <div ps-column ps-mobile="8" ps-tablet="6" ps-desktop-sm="6">
+                          <ps-form-field [label-internal]=" 'Cliente.Cidade' | translate:lang ">
+                            <input ps-field-entry type="text" id="cidade" formControlName="cidade" placeholder="{{ 'Valida.Informe' | translate:lang }}{{ 'Cliente.Cidade' | translate:lang }}"
+                            />
+                            <div [hidden]="form.get('cidade').errors === null || !getSubmitted()" [style.color]="form.get('cidade').errors && getSubmitted() ? 'red': '' ">
+                              <label class="ps-frm-lbl" [hidden]="form.get('cidade').hasError('required') === false ">
+                                <small l10nTranslate>Valida.Required</small>
+                              </label>
+                            </div>
+                          </ps-form-field>
+                        </div>
+
+                        <div ps-column ps-mobile="8" ps-tablet="6" ps-desktop-sm="6">
+                          <ps-form-field [label-internal]="'Cliente.DataNascimento' | translate:lang" helper="01/01/2012">
+                            <input ps-field-entry-data ps-mask="99/99/9999" id="dataNascimento" formControlName="dataNascimento" />
+                            <div [hidden]="form.get('dataNascimento').errors === null || !getSubmitted()" [style.color]="form.get('dataNascimento').errors && getSubmitted() ? 'red': '' ">
+                              <label class="ps-frm-lbl" [hidden]="form.get('dataNascimento').hasError('required') === false ">
+                                <small l10nTranslate>Valida.Required</small>
+                              </label>
+                            </div>
+                          </ps-form-field>
+                        </div>
+                      </div>
+                      <div ps-row>
+                        <div ps-column ps-mobile="8" ps-tablet="6" ps-desktop-sm="6">
+                          <ps-form-select>
+                            <select formControlName="uf" id="uf">
+                              <option *ngFor=" let uf of listUf ">{{uf}}</option>
+                            </select>
+                          </ps-form-select>
+                          <div [hidden]="form.get('uf').errors === null || !getSubmitted()" [style.color]="form.get('uf').errors && getSubmitted() ? 'red': '' ">
+                            <label class="ps-frm-lbl" [hidden]="form.get('uf').hasError('required') === false ">
+                              <small l10nTranslate>Valida.Required</small>
+                            </label>
+                          </div>
+                        </div>
+
+                        <div ps-column ps-mobile="8" ps-tablet="6" ps-desktop-sm="6">
+                          <ps-form-select>
+                            <select formControlName="sexo" id="sexo">
+                              <option>M</option>
+                              <option>F</option>
+                            </select>
+                          </ps-form-select>
+                          <div [hidden]="form.get('sexo').errors === null || !getSubmitted()" [style.color]="form.get('sexo').errors && getSubmitted() ? 'red': '' ">
+                            <label class="ps-frm-lbl" [hidden]="form.get('sexo').hasError('required') === false ">
+                              <small l10nTranslate>Valida.Required</small>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-template>
+                  <ng-template ps-panel-foot>
+                    <div ps-row>
+                      <div ps-column ps-mobile="8" ps-tablet="4" ps-desktop-sm="4" ps-tablet-lspan="4">
+                        <p>
+                          <br/>
+                          <br/>
+                          <button id="salvar" name="salvar" [disabled]="!form.valid" ps-btn-primary>{{ 'Form.Salvar' | translate:lang }}</button>
+                        </p>
+                      </div>
+                    </div>
+                  </ng-template>
+
+                </ps-accordion-panel>
+              </ps-accordion>
+            </form>
+          </ng-template>
+        </ps-tab>
+
+        <ps-tab>
+          <ng-template ps-tab-title>
+            <ps-ico ps-type="ps-glyph" ps-size="sm" ps-ico="home"></ps-ico>
+            {{ 'Cliente.Listar' | translate:lang }}
+          </ng-template>
+          <ng-template ps-tab-content>
+            <div class="container">
+              <div class="row">
+                <div class="col-12">
+                  <ps-loading ps-size="lg" ps-color="gray" *ngIf="loadingEditar"></ps-loading>
+                </div>
+                <div class="col-12" *ngIf="!loadingEditar">
+                  <h3 ps-title ps-heading="3" l10nTranslate>Cliente.Listar</h3>
+                </div>
+              </div>
+              <div ps-column ps-mobile="12" ps-tablet="12" ps-desktop-lg="12" ps-align="Center">
+
+                <ps-datagrid [pagesize]='5' [filtering]='true' [columns]='columns' [source]='clientes'>
+                </ps-datagrid>
+                <!-- Template do datagrid não pode estar aninhada em outras ng-templates -->
+                <ng-template #templateDataGrid let-row>
+                  <div class="text">
+                    <a href="#">{{row.company}}</a>
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+          </ng-template>
+        </ps-tab>
+      </ps-tabs>
+    </div>
+  </div>
+  <div>
+  </div>
+</div>
+
+<ps-modal #modalDialog (modalonshow)="log($event)" (modalonhide)="log($event)" ps-modal-small-desktop-sm>
+  <ng-template ps-modal-title>
+  </ng-template>
+  <ng-template ps-modal-content>
+    <div ps-row>
+      <div ps-column ps-mobile="8" ps-tablet="12" ps-desktop-lg="12" class="ps-frm-row">
+        <h3 ps-title ps-heading="4" ps-light>
+          {{'Cliente.Cliente' | translate}}  {{'Message.Success' | translate}}
+        </h3>
+      </div>
+      <div ps-column ps-mobile="8" ps-tablet="12" ps-desktop-lg="12" class="ps-frm-row">
+        &nbsp;
+      </div>
+    </div>
+  </ng-template>
+  <ng-template ps-modal-foot>
+    <div ps-row>
+      <div ps-column ps-mobile="6" ps-tablet="6" ps-desktop-sm="6" class="ps-frm-row">
+        <button (click)="modalDialog.close($event);" ps-btn>{{'Dialog.Confirmar' | translate}}</button>
+      </div>
+    </div>
+  </ng-template>
+</ps-modal>

@@ -1,0 +1,5 @@
+$app-primary: mat-palette($mat-amber, 400, 300, 700);
+$app-accent: mat-palette($mat-yellow);
+$app-warn: mat-palette($mat-deep-orange, A200);
+
+$app-outros-servicos-theme: mat-light-theme($app-primary, $app-accent, $app-warn);

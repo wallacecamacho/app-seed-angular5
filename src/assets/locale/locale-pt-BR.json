@@ -1,0 +1,60 @@
+{
+    "App": {
+        "Tittle": "SOFEA - Aplicação Angular",
+        "Subtitle": "Esse é um pequeno mundo",
+        "Refer": "Aplicação de Referência",
+        "Home": "Home",
+        "LanguageTip": "Idiomas",
+        "AlterarTema": "Alterar Tema"
+    },
+    "Cliente": {
+        "Cliente": "Cliente",
+        "Edit": "Editar",
+        "Titulo": "Cadastro de Clientes",
+        "Listar": "Exibir Clientes",
+        "Preencha": "Preencha as informações",
+        "Nome": "Nome",
+        "Telefone": "Telefone",
+        "Cidade": "Cidade",
+        "Uf": "Uf",
+        "Endereco": "Endereço",
+        "Excluir": "Gostaria de excluir o cliente ?",
+        "Sexo": "Sexo",
+        "DataNascimento": "Data de Nascimento"
+
+    },
+    "Form":{
+        "Preencha": "Preencha os dados do formulário",
+        "Salvar": "Salvar"
+    },
+    "Valida": { 
+        "Min": "Deve ter no mínimo ",
+        "Required": "Obrigatório",
+        "Caracteres": "Caracteres",
+        "Informe": "Informe o "
+    },
+    "Message": {
+       "Success" : " inserido com sucesso",
+       "Info": "Informação"
+    },
+    "Menu": {
+        "Listar": "Listar",
+        "Cadastrar": "Cadastrar"
+    },
+    "Paginator": {
+        "Previous": "Anterior",
+        "Next": "Próximo",
+        "Pagination": "Paginação",
+        "Page": "página",
+        "YouAre": "Você está na página"
+    },
+    "Dialog": {
+        "OK": "Ok",
+        "Confirmar": "Confirmar",
+        "Cancelar": "Cancelar",
+        "Remover": "Remover",
+        "Incluir": "Incluir",
+        "Atualizar": "Atualizar",
+        "Sucesso": " atualizado com sucesso"
+    }
+}

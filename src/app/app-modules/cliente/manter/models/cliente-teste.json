@@ -1,0 +1,10 @@
+{
+    'id': 1;
+    nome: string;
+    endereco: string;
+    telefone: string;
+    dataNascimento: string;
+    cidade: string;
+    sexo: string;
+    uf: string;
+}

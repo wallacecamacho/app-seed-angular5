@@ -1,0 +1,5 @@
+$app-primary: mat-palette($mat-green, 800, 500, 700);
+$app-accent: mat-palette($mat-light-green);
+$app-warn: mat-palette($mat-deep-orange, A200);
+
+$app-financeiras-theme: mat-light-theme($app-primary, $app-accent, $app-warn);

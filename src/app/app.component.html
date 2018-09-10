@@ -1,0 +1,63 @@
+<ng-progress></ng-progress>
+<mat-sidenav-container>
+  <div class="wrapper">
+
+    <div class="toolbar">
+      <mat-toolbar color="primary">
+        <span routerLink="" class="branding spacer d-inline d-sm-none text-center"><img
+          [src]="logo"/></span>
+        <span routerLink="" class="branding spacer d-none d-sm-inline d-md-none text-center"><img
+          [src]="logo"/> Angular Starter</span>
+        <span routerLink="" class="branding spacer d-none d-md-inline"><img
+          [src]="logo"/>{{ 'App.Tittle' | translate:lang }}</span>
+
+        <span class="d-none d-md-inline">
+          <button mat-button class="nav-button" *ngFor="let item of navigation"
+              [routerLink]="[item.link]" routerLinkActive="active">
+            {{item.label}}
+          </button>
+        </span>
+
+      <div matTooltip="{{ 'App.LanguageTip' | translate:lang }}" matTooltipPosition="below">
+        <button mat-icon-button [matMenuTriggerFor]="countryMenu"  class="d-none d-sm-inline" aria-label="Open x-positioned menu">
+          <mat-icon>translate</mat-icon>
+        </button>
+      </div>
+        <mat-menu xPosition="before" #countryMenu="matMenu" class="before">
+          <a *ngFor="let item of countryMenuItems" (click)="selectLocale(item.language, item.country, item.currency, item.numberingSystem);"
+              mat-menu-item>
+              {{ item.text }}
+              <mat-icon *ngIf="currentCountry == item.country && currentNumberingSystem == item.numberingSystem">done</mat-icon>
+          </a>
+        </mat-menu>
+
+      </mat-toolbar>
+    </div>
+
+    <div class="content"
+         [@routerTransition]="o.isActivated && o.activatedRoute.routeConfig.path">
+      <router-outlet #o="outlet"></router-outlet>
+    </div>
+
+    <div class="footer">
+      <div class="row">
+        <div class="col-sm-12 links">
+          <img [src]="logoFooter"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 signature">
+          &#169; {{year}} - CDS - Porto Seguro
+          <br class="d-block d-sm-none">
+          <a matTooltip="Show changelog"
+             matTooltipPosition="before"
+             href="http://li1695:90/SOFEA/porto-sofea-referencia">
+            <i class="fa fa-rocket"></i> {{version}} <span *ngIf="!isProd">[{{envName}}]</span> <span >[{{angular}}]</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</mat-sidenav-container>

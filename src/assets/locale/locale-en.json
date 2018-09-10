@@ -1,0 +1,60 @@
+{
+    "App": {
+        "Tittle": "SOFEA - Angular Application",
+        "Subtitle": "This is a small world",
+        "Refer": "Reference Application",
+        "Home": "Home",
+        "LanguageTip": "Languages",
+        "AlterarTema": "Change Theme"
+    },
+    "Cliente": {
+        "Cliente": "Customer",
+        "Edit": "Edit",
+        "Titulo": "Customer Registration",
+        "Listar": "Shows Customers",
+        "Preencha": "Fill in as information",
+        "Nome": "Name",
+        "Telefone": "Telephone",
+        "Cidade": "City",
+        "Uf": "Uf",
+        "Endereco": "Address",
+        "Excluir": "Would you like to delete the client?",
+        "Gender": "Gender",
+        "DataNascimento": "BirthDay"
+
+    },
+    "Form": {
+        "Preencha": "Fill the form",
+        "Salvar": "Save"
+    },
+    "Valida": { 
+        "Min": "Must have at least ",
+        "Required": "Required",
+        "Caracteres": "Characters",
+        "Informe": "Fill in "
+    },
+    "Message": {
+       "Success" : " inserted successfull!",
+       "Info": "Information"
+    },
+    "Menu": {
+        "Listar": "List",
+        "Cadastrar": "Register"
+    },
+    "Paginator": {
+        "Previous": "Previous",
+        "Next": "Next",
+        "Pagination": "Pagination",
+        "Page": "página",
+        "YouAre": "You are on the page"
+    },
+    "Dialog": {
+        "OK": "Ok",
+        "Confirmar": "Confirm",
+        "Cancelar": "Cancel",
+        "Remover": "Remove",
+        "Incluir": "Add",
+        "Atualizar": "Update",
+        "Sucesso": " success"
+    }
+}

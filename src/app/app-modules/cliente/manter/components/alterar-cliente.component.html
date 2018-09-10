@@ -1,0 +1,146 @@
+<div mat-dialog-title>
+  <div style="display: flex; align-content: flex-end; flex-direction: row-reverse;">
+    <a href="javascript:;" (click)="onClose(this.$event)" class="ps-modal-close ps-modal-close-default">
+      <span style="cursor: pointer" class="ps-ico ps-ico-sm ps-ico-close"></span>
+    </a>
+  </div>
+  <div style="display: flex; align-content: flex-end; flex-direction: row;">
+    {{data.info}}
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <h3 ps-title ps-heading="3" ps-light>
+        {{ 'Cliente.Titulo' | translate: lang }}
+      </h3>
+      <form [formGroup]="form" (ngSubmit)="submit()" class="needs-validation">
+
+        <div ps-row>
+          <div ps-column ps-mobile="8" ps-tablet="8" ps-desktop-sm="12" c>
+            <ps-form-field [label]="'Cliente.Nome' | translate:lang">
+              <input ps-field-entry type="text" id="nome" formControlName="nome" name="nome" class="ng-valid required ps-frm-entry ps-frm-valid"
+                placeholder="{{ 'Valida.Informe' | translate:lang }}{{ 'Cliente.Nome' | translate:lang }}" />
+              <div [hidden]="form.get('nome').errors === null || !getSubmitted()" [style.color]="form.get('nome').errors && getSubmitted() ? 'red': '' ">
+                <label class="ps-frm-lbl" [hidden]="form.get('nome').hasError('required') === false ">
+                  <small l10nTranslate>Valida.Required</small>
+                </label>
+                <label class="ps-frm-lbl" [hidden]="form.get('nome').status === 'VALID'">
+                  <small>{{ 'Valida.Min' | translate:lang }} 7 {{ 'Valida.Caracteres' | translate:lang }}</small>
+                </label>
+              </div>
+            </ps-form-field>
+          </div>
+        </div>
+        <div ps-row>
+          <div ps-column ps-mobile="8" ps-tablet="6" ps-desktop-sm="6">
+            <ps-form-field [label]=" 'Cliente.Endereco' | translate:lang ">
+              <input ps-field-entry type="text" formControlName="endereco" class="ng-valid required ps-frm-entry ps-frm-valid" placeholder="{{ 'Valida.Informe' | translate:lang }}{{ 'Cliente.Endereco' | translate:lang }}"
+              />
+              <div [hidden]="form.get('endereco').errors === null || !getSubmitted()" [style.color]="form.get('endereco').errors && getSubmitted() ? 'red': '' ">
+                <label class="ps-frm-lbl" [hidden]="form.get('endereco').hasError('required') === false ">
+                  <small l10nTranslate>Valida.Required</small>
+                </label>
+                <label class="ps-frm-lbl" [hidden]="form.get('endereco').status === 'VALID'">
+                  <small>{{ 'Valida.Min' | translate:lang }} 7 {{ 'Valida.Caracteres' | translate:lang }}</small>
+                </label>
+              </div>
+            </ps-form-field>
+
+          </div>
+
+          <div ps-column ps-mobile="8" ps-tablet="6" ps-desktop-sm="6">
+            <ps-form-field [label]=" 'Cliente.Telefone' | translate:lang">
+              <input ps-field-entry type="text" formControlName="telefone" placeholder="{{ 'Valida.Informe' | translate:lang }}{{ 'Cliente.Telefone' | translate:lang }}"
+              />
+              <div [hidden]="form.get('telefone').errors === null || !getSubmitted()" [style.color]="form.get('telefone').errors && getSubmitted() ? 'red': '' ">
+                <label class="ps-frm-lbl" [hidden]="form.get('telefone').hasError('required') === false ">
+                  <small l10nTranslate>Valida.Required</small>
+                </label>
+              </div>
+            </ps-form-field>
+
+          </div>
+
+        </div>
+        <div ps-row>
+          <div ps-column ps-mobile="8" ps-tablet="6" ps-desktop-sm="6">
+            <ps-form-field [label]=" 'Cliente.Cidade' | translate:lang">
+              <input ps-field-entry type="text" formControlName="cidade" placeholder="{{ 'Valida.Informe' | translate:lang }}{{ 'Cliente.Cidade' | translate:lang }}"
+              />
+              <div [hidden]="form.get('cidade').errors === null || !getSubmitted()" [style.color]="form.get('cidade').errors && getSubmitted() ? 'red': '' ">
+                <label class="ps-frm-lbl" [hidden]="form.get('cidade').hasError('required') === false ">
+                  <small l10nTranslate>Valida.Required</small>
+                </label>
+              </div>
+            </ps-form-field>
+          </div>
+
+          <div ps-column ps-mobile="8" ps-tablet="6" ps-desktop-sm="6">
+            <ps-form-field [label]="" helper="'Cliente.DataNascimento' | translate:lang">
+              <input class="ng-valid required ps-frm-entry ps-frm-valid" type="date" formControlName="dataNascimento" />
+              <div [hidden]="form.get('dataNascimento').errors === null || !getSubmitted()" [style.color]="form.get('dataNascimento').errors && getSubmitted() ? 'red': '' ">
+                <label class="ps-frm-lbl" [hidden]="form.get('dataNascimento').hasError('required') === false ">
+                  <small l10nTranslate>Valida.Required</small>
+                </label>
+              </div>
+            </ps-form-field>
+          </div>
+        </div>
+        <div ps-row>
+          <div ps-column ps-mobile="8" ps-tablet="6" ps-desktop-sm="6">
+            <ps-form-select >
+              <select formControlName="uf">
+                <option *ngFor=" let uf of listUf ">{{uf}}</option>
+              </select>
+            </ps-form-select>
+            <div [hidden]="form.get('uf').errors === null || !getSubmitted()" [style.color]="form.get('uf').errors && getSubmitted() ? 'red': '' ">
+              <label class="ps-frm-lbl" [hidden]="form.get('uf').hasError('required') === false ">
+                <small l10nTranslate>Valida.Required</small>
+              </label>
+            </div>
+          </div>
+
+          <div ps-column ps-mobile="8" ps-tablet="6" ps-desktop-sm="6">
+            <ps-form-select>
+              <select formControlName="sexo">
+                <option>M</option>
+                <option>F</option>
+              </select>
+            </ps-form-select>
+            <div [hidden]="form.get('sexo').errors === null || !getSubmitted()" [style.color]="form.get('sexo').errors && getSubmitted() ? 'red': '' ">
+              <label class="ps-frm-lbl" [hidden]="form.get('sexo').hasError('required') === false ">
+                <small l10nTranslate>Valida.Required</small>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div ps-row>
+          <div ps-column ps-mobile="8" ps-tablet="4" ps-desktop-sm="4" ps-tablet-lspan="4">
+            <p>
+              <input type="submit" [disabled]="form.pristine" ps-btn-primary value="Salvar" (click)="form.valid" />
+            </p>
+          </div>
+        </div>
+      </form>
+
+      <ps-modal #ModalPadrao ps-modal-small-desktop-sm>
+        <ng-template ps-modal-title>
+          Informação
+        </ng-template>
+        <ng-template ps-modal-content>
+          <h4 ps-title ps-heading="4" ps-light>
+            <ps-ico ps-type="ps-glyph" ps-size="md" ps-ico="information"></ps-ico>
+            Cliente Atualizado com sucesso!</h4>
+        </ng-template>
+        <ng-template ps-modal-foot>
+        </ng-template>
+      </ps-modal>
+    </div>
+  </div>
+  <div>
+  </div>
+</div>
